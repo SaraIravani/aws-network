@@ -1,8 +1,10 @@
 variable "region" {
+  description = "AWS region for deployment"
   default = "ca-central-1"
 }
 
 variable "vpc_cidr" {
+  description = "CIDR block for main VPC"
   default = "10.0.0.0/16"
 }
 
