@@ -3,15 +3,21 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "region" {
+  description = "AWS region for resources"
+  type        = string
+}
+
 variable "public_subnets" {
-  description = "Map of public subnet CIDRs, key = identifier"
-  type        = map(string)
+  description = "List of public subnet IDs"
+  type        = list(string)
 }
 
 variable "private_subnets" {
-  description = "Map of private subnet CIDRs, key = identifier"
-  type        = map(string)
+  description = "List of private subnet IDs"
+  type        = list(string)
 }
+
 
 variable "availability_zones" {
   description = "List of availability zones for AZ assignment"

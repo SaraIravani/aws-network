@@ -15,7 +15,7 @@
 
 # S3 Gateway Endpoint
 resource "aws_vpc_endpoint" "s3" {
-  count             = contains(var.services, "s3") ? 1 : 0
+  count             = var.enable && contains(var.services, "s3") ? 1 : 0
   vpc_id            = var.vpc_id
   service_name      = "com.amazonaws.${var.region}.s3"
   vpc_endpoint_type = "Gateway"
@@ -28,7 +28,7 @@ resource "aws_vpc_endpoint" "s3" {
 
 # DynamoDB Gateway Endpoint
 resource "aws_vpc_endpoint" "dynamodb" {
-  count             = contains(var.services, "dynamodb") ? 1 : 0
+  count             = var.enable && contains(var.services, "dynamodb") ? 1 : 0
   vpc_id            = var.vpc_id
   service_name      = "com.amazonaws.${var.region}.dynamodb"
   vpc_endpoint_type = "Gateway"

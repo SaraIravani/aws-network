@@ -14,9 +14,10 @@
 # Can be extended for autoscaling policies, placement groups, etc.
 
 locals {
-  selected_instance_type = var.performance_mode == "high_performance" ? "t3.large" :
+  selected_instance_type = (var.performance_mode == "high_performance" ? "t3.large" :
                            var.performance_mode == "balanced"        ? "t3.medium" :
-                           "t3.small"
+                                                                        "t3.small"
+)
 }
 
 output "recommended_instance_type" {

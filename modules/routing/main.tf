@@ -23,8 +23,8 @@ resource "aws_route" "public_internet" {
 
 # Associate Public Subnets
 resource "aws_route_table_association" "public_assoc" {
-  for_each       = var.public_subnets
-  subnet_id      = each.value.id
+  count          = length(var.public_subnets)
+  subnet_id      = var.public_subnets[count.index]
   route_table_id = aws_route_table.public.id
 }
 
@@ -58,8 +58,8 @@ resource "aws_vpc_endpoint" "s3" {
 
 # Associate Private Subnets
 resource "aws_route_table_association" "private_assoc" {
-  for_each       = var.private_subnets
-  subnet_id      = each.value.id
+  count          = length(var.private_subnets)
+  subnet_id      = var.private_subnets[count.index]
   route_table_id = aws_route_table.private.id
 }
 

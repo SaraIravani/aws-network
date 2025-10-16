@@ -1,15 +1,31 @@
-#for S3
-resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.main.id
-  service_name = "com.amazonaws.${var.region}.s3"
-  vpc_endpoint_type = "Gateway"
-  route_table_ids = [aws_route_table.private.id]
+variable "vpc_id" {
+  description = "ID of the VPC"
+  type        = string
+}
+variable "private_route_table_ids" {
+  description = "List of private route table IDs for VPC endpoints"
+  type        = list(string)
+}
 
+
+variable "enable" {
+  description = "Enable or disable VPC endpoints"
+  type        = bool
+  default     = true
 }
-#for DoymonDB
-resource "aws_vpc_endpoint" "dynamodb" {
-  vpc_id       = aws_vpc.main.id
-  service_name = "com.amazonaws.${var.region}.dynamodb"
-  vpc_endpoint_type = "Gateway"
-  route_table_ids = [aws_route_table.private.id]
+
+variable "private_subnets" {
+  description = "List of private subnet IDs for the endpoints"
+  type        = list(string)
 }
+
+variable "region" {
+  description = "AWS region"
+  type        = string
+}
+
+variable "services" {
+  type    = list(string)
+  default = ["s3", "dynamodb"]
+}
+
