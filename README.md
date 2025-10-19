@@ -46,6 +46,7 @@ terraform plan
 
 # Apply the configuration
 terraform apply
+```
 # 🌐 AWS Network Infrastructure with Terraform
 
 This project provides a **modular, secure, and cost-efficient AWS network foundation** built using Terraform.  
