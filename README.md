@@ -93,7 +93,7 @@ It’s designed to support workloads such as **EKS**, **EC2**, or **Fargate**, w
 **Sara Iravani**  
 DevOps Engineer | Kubernetes & Cloud Infrastructure  
 
-🔗 [LinkedIn Profile](#)
+🔗 https://www.linkedin.com/in/sara-iravani(#)
 
 ---
 
